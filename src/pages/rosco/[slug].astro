@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Rosco from '../../components/Rosco.svelte';
+import { roscos, href } from '../../lib/roscos';
+import { MARCA } from '../../lib/config';
+
+export function getStaticPaths() {
+  return roscos.map((rosco) => ({ params: { slug: rosco.slug }, props: { rosco } }));
+}
+
+const { rosco } = Astro.props;
+---
+
+<Layout titulo={`${rosco.titulo} · ${MARCA}`}>
+  <Rosco client:load rosco={rosco} archivoHref={href('archivo/')} marca={MARCA} />
+</Layout>

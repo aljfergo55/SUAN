@@ -1,0 +1,38 @@
+---
+import '@fontsource/anton/400.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700.css';
+import '../styles/global.css';
+import { href } from '../lib/roscos';
+import { MARCA } from '../lib/config';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+}
+const { titulo = MARCA, descripcion = 'El rosco del rap y la música urbana underground en español.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+    />
+    <meta name="theme-color" content="#ece6d6" />
+    <meta name="description" content={descripcion} />
+    <title>{titulo}</title>
+    <link rel="icon" type="image/svg+xml" href={href('icon.svg')} />
+    <link rel="apple-touch-icon" href={href('apple-touch-icon.png')} />
+    <link rel="manifest" href={href('manifest.webmanifest')} />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content={MARCA} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

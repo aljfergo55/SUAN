@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { href } from '../lib/roscos';
+import { MARCA } from '../lib/config';
+---
+
+<Layout titulo={`No encontrado · ${MARCA}`}>
+  <p class="vacio">
+    <span>Esta página no existe.<br /><a href={href('')} style="color: var(--rojo); font-weight: 700">Volver al rosco</a></span>
+  </p>
+</Layout>

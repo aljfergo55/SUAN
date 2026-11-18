@@ -1,0 +1,12 @@
+# titulo: Rosco corto
+# fecha: 2026-11-12
+# tiempo: 90
+letra;tipo;pista;respuesta;alternativas
+A;empieza;"Insecto social que fabrica miel";abeja;
+C;empieza;"Rumiante de una o dos jorobas, típico del desierto";camello;
+E;empieza;"Primer mes del año";enero;
+L;empieza;"Mamífero carnívoro conocido como el rey de la selva";león;
+M;empieza;"Fruta redonda, roja o verde, símbolo del pecado original";manzana;
+R;empieza;"Roedor pequeño de cola larga, enemigo de los gatos";ratón;
+S;empieza;"Reptil sin patas que se desplaza reptando";serpiente;
+T;contiene;"Aparato que sirve para ver programas y películas en casa";televisión;televisor

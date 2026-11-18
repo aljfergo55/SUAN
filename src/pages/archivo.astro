@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Archivo from '../components/Archivo.svelte';
+import { roscos, href } from '../lib/roscos';
+import { MARCA } from '../lib/config';
+
+const lista = roscos.map((r) => ({
+  slug: r.slug,
+  titulo: r.titulo,
+  fecha: r.fecha,
+  n: r.preguntas.length,
+  href: href(`rosco/${r.slug}/`),
+}));
+---
+
+<Layout titulo={`Archivo · ${MARCA}`}>
+  <Archivo client:load roscos={lista} inicioHref={href('')} />
+</Layout>

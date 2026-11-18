@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Rosco from '../components/Rosco.svelte';
+import { roscos, href } from '../lib/roscos';
+import { MARCA } from '../lib/config';
+
+// La portada es directamente el rosco más reciente.
+const ultimo = roscos[0];
+---
+
+<Layout titulo={MARCA}>
+  {
+    ultimo ? (
+      <Rosco client:load rosco={ultimo} archivoHref={href('archivo/')} marca={MARCA} />
+    ) : (
+      <p class="vacio">Añade un archivo .csv en src/roscos para empezar.</p>
+    )
+  }
+</Layout>

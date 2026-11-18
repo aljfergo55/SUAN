@@ -1,0 +1,17 @@
+{
+  "name": "PasaRima",
+  "short_name": "PasaRima",
+  "description": "El rosco del rap y la música urbana underground en español.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ece6d6",
+  "theme_color": "#ece6d6",
+  "lang": "es",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

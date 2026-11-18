@@ -1,0 +1,107 @@
+:root {
+  color-scheme: light;
+
+  /* Fotocopia: papel, tinta y un solo rojo */
+  --papel: #ece6d6;
+  --papel-2: #e1d9c3;
+  --tinta: #141414;
+  --rojo: #d1261b;
+  --suave: #6a6455;
+
+  --fuente-titulo: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Narrow', sans-serif;
+  --fuente-ui: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
+  --fuente-pista: var(--fuente-ui);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--papel);
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--fuente-ui);
+  color: var(--tinta);
+  background:
+    radial-gradient(130% 90% at 50% 40%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 60%),
+    var(--papel);
+  background-attachment: fixed;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grano de fotocopia (estático: no cuesta batería) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Bordes oscurecidos y una franja de tóner a los lados, como una copia pasada de rosca */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, 0.09), rgba(20, 20, 20, 0) 5%, rgba(20, 20, 20, 0) 95%, rgba(20, 20, 20, 0.07)),
+    radial-gradient(120% 100% at 50% 50%, rgba(0, 0, 0, 0) 60%, rgba(60, 40, 10, 0.12) 100%);
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--rojo);
+  outline-offset: 3px;
+}
+
+/* Transición suave entre páginas (navegadores que lo soportan; el resto la ignora). */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+.vacio {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 2rem;
+  text-align: center;
+  color: var(--suave);
+}
