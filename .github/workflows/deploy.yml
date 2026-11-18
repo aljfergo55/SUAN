@@ -25,7 +25,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - run: npm ci || npm install
       # El build valida primero todos los CSV: si hay un error, se indica archivo y fila.
       - run: npm run build
