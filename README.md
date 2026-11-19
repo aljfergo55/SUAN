@@ -1,4 +1,4 @@
-# Pasapalabra
+# Aciertale Mas
 
 Minijuego del rosco: Astro + Svelte 5 + GSAP, publicado como web estática en GitHub Pages.
 
