@@ -1,6 +1,6 @@
 # titulo: Rosco1
 # fecha: 2026-11-19
-# tiempo: 150
+# tiempo: 300
 letra,tipo,pista,respuesta,alternativas
 A,empieza,"Barrio granadino donde Yung Beef nació y vivió gran parte de su infancia y adolescencia",Albayzin
 B,empieza,"Canción de Michael Jackson que es utilizada como sample en la primera canción del álbum de Gloosito: Nitro",Blue Gangsta
@@ -20,10 +20,10 @@ N,empieza,"Emoción sobre la que habla el diálogo introductorio de la canción 
 O,empieza,"Único tema del album 5ta dimensión donde no hace aparición Sticky M.A.",Outro
 P,empieza,"Animal sobre el que biberón promueve su gran pesca",Pargo Rojo
 Q,contiene,"Siglas del Album debut del artista catalán Raly",lqlcpdm
-R,empieza,"Colectivo artístico y discográfica conformado por la asociación de Ralphie Choo, Rusowsky, TRISTÁN!, DRUMMIE, y mori",Rusia idk,rusia-idk
+R,empieza,"Colectivo artístico y discográfica conformado por la asociación de Ralphie Choo y Rusowsky entre otros",Rusia idk,rusia-idk
 S,empieza,"Nombre que comparten un artista valenciano y un tema del colectivo Agorazein",Superreservao
 T,empieza,"Personaje con el que se compara Tarchi por el verde y el morado",Timmy Turner
-U,empieza,"Canción de Polima WestCoast en conjunto Pailita que junto con su remix se mantiene como la canción de ambos con más reproducciones en Spotify",Ultra solo, ultrasolo
+U,empieza,"Canción de Polima WestCoast que junto con su remix se mantiene como su canción con más reproducciones en Spotify",Ultra solo, ultrasolo
 V,empieza,"Equipo al que pertenece la única camiseta de fútbol visible en la portada de BBO",Valencia,valencia cf
 W,empieza,"EP que dio a conocer al artista leonés MDA que comparte nombre con una ciudad asiática",Wuhan
 X,contiene,"Frase que Rosalia asocia a la X en abcdefg en motomami",Te despejo la x en un momento
