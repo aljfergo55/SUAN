@@ -3,6 +3,8 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv, parseRosco } from '../src/lib/csv';
 import { esCorrecta, formatearTiempo, normalizar, resumen, siguiente } from '../src/lib/game';
+import { claveCorrecta } from '../src/lib/clave';
+import { CLAVE_HASH } from '../src/lib/config';
 import type { Estado, Pregunta } from '../src/lib/types';
 
 let ok = 0;
@@ -87,6 +89,13 @@ test('errores claros', () => {
   debeFallar('letra,pista,respuesta\nA,,ala\n', 'falta la pista');
   debeFallar('pista,respuesta\nx,ala\n', 'falta la columna "letra"');
   debeFallar('# tiempo: mucho\nletra,pista,respuesta\nA,x,ala\n', 'tiempo');
+});
+
+test('puerta: la clave correcta entra y las demás no', () => {
+  assert.ok(claveCorrecta('esasodaestamuyblanca', CLAVE_HASH));
+  assert.ok(claveCorrecta('  EsaSodaEstaMuyBlanca ', CLAVE_HASH));
+  assert.ok(!claveCorrecta('esasodaestamuyblanc', CLAVE_HASH));
+  assert.ok(!claveCorrecta('', CLAVE_HASH));
 });
 
 console.log('CSV de ejemplo del proyecto');

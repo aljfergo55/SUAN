@@ -1,0 +1,151 @@
+/* Puerta de acceso (decorativa). Fotocopia: papel, tinta, un solo rojo. */
+.puerta {
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* por debajo del grano (99/100) para que también lo cubra */
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(130% 90% at 50% 40%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 60%),
+    var(--papel);
+  overflow: auto;
+}
+html[data-acceso='ok'] .puerta {
+  display: none;
+}
+
+.puerta-caja {
+  width: min(360px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.puerta-sello {
+  width: 84px;
+  height: 84px;
+  fill: var(--tinta);
+  margin-bottom: 18px;
+}
+.puerta-sello .rojo {
+  fill: var(--rojo);
+}
+
+.puerta-titulo {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 14vw, 3.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.puerta-sub {
+  margin: 10px 0 28px;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+.puerta-campo {
+  position: relative;
+  width: 100%;
+  display: block;
+  border: 2px solid var(--tinta);
+  background: var(--papel-2);
+  padding: 20px 76px 8px 14px;
+  text-align: left;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.puerta-campo:focus-within {
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+.puerta-campo.mal {
+  border-color: var(--rojo);
+  box-shadow: 4px 4px 0 var(--rojo);
+}
+.puerta-etiqueta {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+.puerta-campo input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--tinta);
+  font: 700 1.05rem var(--fuente-ui);
+  padding: 4px 0 6px;
+  /* 16px mínimo evita el zoom automático de iOS */
+  font-size: max(16px, 1.05rem);
+}
+.puerta-ver {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--tinta);
+  font: 700 0.68rem var(--fuente-ui);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 6px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.puerta-error {
+  min-height: 1.4em;
+  margin: 10px 0 6px;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.puerta-error.visible {
+  opacity: 1;
+}
+
+.puerta-entrar {
+  width: 100%;
+  border: 2px solid var(--tinta);
+  background: var(--tinta);
+  color: var(--papel);
+  font: 400 1.35rem var(--fuente-titulo);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 0 10px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+.puerta-entrar:hover {
+  background: var(--rojo);
+  border-color: var(--rojo);
+}
+.puerta-entrar:active {
+  transform: translateY(1px) scale(0.99);
+}
+.puerta-ver:focus-visible,
+.puerta-entrar:focus-visible {
+  outline: 2px solid var(--rojo);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .puerta *,
+  .puerta {
+    transition: none !important;
+  }
+}

@@ -3,8 +3,10 @@ import '@fontsource/anton/400.css';
 import '@fontsource/space-mono/400.css';
 import '@fontsource/space-mono/700.css';
 import '../styles/global.css';
+import '../styles/puerta.css';
+import Puerta from '../components/Puerta.svelte';
 import { href } from '../lib/roscos';
-import { MARCA } from '../lib/config';
+import { MARCA, CLAVE_HASH, CLAVE_ALMACEN } from '../lib/config';
 
 interface Props {
   titulo?: string;
@@ -31,8 +33,14 @@ const { titulo = MARCA, descripcion = 'El rosco del rap y la música urbana unde
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content={MARCA} />
+    <script is:inline define:vars={{ hash: CLAVE_HASH, almacen: CLAVE_ALMACEN }}>
+      try {
+        if (localStorage.getItem(almacen) === hash) document.documentElement.dataset.acceso = 'ok';
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <slot />
+    <Puerta client:load hash={CLAVE_HASH} almacen={CLAVE_ALMACEN} marca={MARCA} />
   </body>
 </html>
